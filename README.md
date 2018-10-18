@@ -1,6 +1,6 @@
 # Node.js [Arm 源码编译](https://blog.csdn.net/wanyi3605/article/details/78131241)
 
-由于 Arm clib 版本太老，不能直接安装官方使用动态库的编译版本，通过交叉编译静态库版本的 Node.
+由于 Arm gcc 版本太老，不能直接安装官方使用动态库的编译版本，通过交叉编译静态库版本的 Node.
 
 ## 编译步骤
 
@@ -16,9 +16,14 @@ xz 先解压为 tar, 再用 tar 解开包
 
 - 配置
 
-  ``` shell
-    ./configure --prefix=/root/armnodejs --dest-cpu=arm --dest-os=linux --cross-compiling --fully-static --with-arm-float-abi=hard --without-snapshot --without-intl
-  ```
+``` shell
+  ./configure --prefix=/root/armnodejs --dest-cpu=arm --dest-os=linux --cross-compiling --fully-static --with-arm-float-abi=hard --without-snapshot --without-intl
+```
 
-  时间设置正确，否则可能提示 Missing or stale config.gypi, please run ./configure
+  Missing or stale config.gypi, please run ./configure 时间设置正确，否则可能提示
+
   [icupkg 错误](https://askubuntu.com/questions/1036688/exec-format-error-on-node-v8-11-1-out-release-icupkg-while-cross-compiling-nodej)
+
+## iotjs
+  
+  三星的 iotjs 可以比 Nodejs 少 10 倍的内存运行 js 程序， 但是不是完全的兼容。
