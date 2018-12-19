@@ -4,7 +4,7 @@
 
 ## 编译步骤
 
-- 下载 [Node.js v8.12](https://nodejs.org/dist/v8.12.0/node-v8.12.0.tar.gz)
+- 下载 Node.js
 
 ``` shell
   wget https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.gz
@@ -44,7 +44,10 @@ xz 先解压为 tar, 再用 tar 解开包
 - 配置 Makefile
 
 ``` shell
-  ./configure --prefix=/root/armnodejs --dest-cpu=arm --dest-os=linux --cross-compiling --fully-static --with-arm-float-abi=hard --without-snapshot --without-int
+  sudo apt install python-minimal // python 2
+  sudo apt-get install g++-multilib // 32
+  ./configure --dest-cpu=arm --dest-os=linux --cross-compiling --with-arm-float-abi=hard --without-snapshot --fully-static --without-int
+  ./configure --dest-cpu=arm --dest-os=linux --cross-compiling --with-arm-float-abi=hard --without-snapshot
 ```
 
 ## 可能出现的错误
@@ -55,8 +58,8 @@ xz 先解压为 tar, 再用 tar 解开包
 
 ## 其他
 
-[iotjs](https://github.com/Samsung/iotjs) 三星的 iotjs 可以比 Nodejs 少 10 倍的内存运行 js 程序， 但是不是完全的兼容 npm 中的库。
-[ARM 源码编译](https://blog.csdn.net/wanyi3605/article/details/78131241)
-[https://blog.csdn.net/sanallen/article/details/80393420](https://blog.csdn.net/sanallen/article/details/80393420)
-[BUILDING](https://github.com/nodejs/node/blob/master/BUILDING.md)
-[Error “gnu/stubs-32.h: No such file](https://stackoverflow.com/questions/7412548/error-gnu-stubs-32-h-no-such-file-or-directory-while-compiling-nachos-source)
+- [iotjs](https://github.com/Samsung/iotjs) 三星的 iotjs 可以比 Nodejs 少 10 倍的内存运行 js 程序， 但是不是完全的兼容 npm 中的库。
+- [ARM 源码编译](https://blog.csdn.net/wanyi3605/article/details/78131241)
+- [https://blog.csdn.net/sanallen/article/details/80393420](https://blog.csdn.net/sanallen/article/details/80393420)
+- [BUILDING](https://github.com/nodejs/node/blob/master/BUILDING.md)
+- [Error “gnu/stubs-32.h: No such file](https://stackoverflow.com/questions/7412548/error-gnu-stubs-32-h-no-such-file-or-directory-while-compiling-nachos-source)
